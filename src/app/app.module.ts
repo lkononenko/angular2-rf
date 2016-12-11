@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { FindTripModule } from './find-trip/find-trip.module'
+import { FindTripModule } from './find-trip/find-trip.module';
 
 @NgModule({
   declarations: [
