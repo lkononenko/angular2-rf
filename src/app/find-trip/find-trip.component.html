@@ -1,1 +1,19 @@
 <h1>Retrieve your booking</h1>
+
+<form novalidate (ngSubmit)="onSubmit()" [formGroup]="tripForm">
+  <div class="form-group">
+    <label>Booking code</label>
+    <input class="form-control"
+        type="text"
+        formControlName="bookingCode"
+        placeholder="Booking code">
+  </div>
+  <div class="form-group" formGroupName="passengers">
+    <label>Family name</label>
+    <input class="form-control"
+      type="text"
+      formControlName="lastName"
+      placeholder="Family name">
+  </div>
+  <button type="submit">Retrieve booking</button>
+</form>
