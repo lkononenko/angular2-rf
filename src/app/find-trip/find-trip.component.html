@@ -23,3 +23,5 @@
   </div>
   <button type="submit" [disabled]="tripForm.invalid">Retrieve booking</button>
 </form>
+<div *ngIf="submitted && foundTrip"><pre>{{ foundTrip | json }}</pre></div>
+<div *ngIf="submitted && !foundTrip">There is no booking that match your request.</div>

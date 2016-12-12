@@ -1,10 +1,16 @@
 import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Http } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/Rx';
+
+import { Trip } from './trip.model';
 
 @Injectable()
 export class FindTripService {
 
   private formErrors = {};
+  private trips: Trip[];
 
   private validationMessages = {
     'bookingCode': {
@@ -23,7 +29,9 @@ export class FindTripService {
     }
   };
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private http: Http) { }
 
   buildForm () {
     return this.formBuilder.group({
@@ -55,6 +63,21 @@ export class FindTripService {
     return this.formErrors;
   }
 
+  getTrips() {
+    return this.http.get(window.location.href + '/assets/mock.json')
+      .map((trips: any) => {
+        this.trips = this.mapTrips(trips.json());
+        return this.trips;
+      });
+  }
+
+  findTrip(inputData: any) {
+    return this.trips.find(trip => {
+      return trip.bookingCode === inputData.bookingCode &&
+             trip.passengers.lastName === inputData.lastName;
+    });
+  }
+
   private setFieldErrorMessages(field, control) {
     let messages = this.validationMessages[field];
 
@@ -64,6 +87,12 @@ export class FindTripService {
         this.formErrors[field] += messages[key] + ' ';
       }
     }
+  }
+
+  private mapTrips(trips: any[]) {
+    return trips.map(
+        (trip) => new Trip(trip)
+    );
   }
 
 }

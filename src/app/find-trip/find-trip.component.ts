@@ -12,6 +12,8 @@ import { Trip } from './trip.model';
 export class FindTripComponent implements OnInit {
   tripForm: FormGroup;
   formErrors = {};
+  foundTrip: Trip;
+  submitted: boolean = false;
 
   constructor(private findTripService: FindTripService) { }
 
@@ -24,12 +26,18 @@ export class FindTripComponent implements OnInit {
 
   onSubmit() {
     if (this.tripForm.valid) {
-      console.log(this.tripForm.value);
+      this.submitted = true;
+
+      this.findTripService.getTrips()
+        .subscribe(result => {
+          this.foundTrip = this.findTripService.findTrip(this.tripForm.value);
+        });
     }
   }
 
   private onValueChanged(data?: any) {
     if (!this.tripForm) { return; }
+    this.submitted = false;
     this.formErrors = this.findTripService.checkFormValidation(this.tripForm);
   }
 }
