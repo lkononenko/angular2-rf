@@ -1,0 +1,48 @@
+@import "../app.variables.scss";
+
+.container {
+  max-width: 400px;
+}
+.content-wrap {
+  border: 1px solid $color_dark_blue;
+  padding: 2rem;
+
+  h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 0;
+  }
+
+  hr {
+    width: 1.5rem;
+    border-top: 0.3rem solid $color_dark_blue;
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin: 1.5rem 0;
+  }
+
+  .btn {
+    width: 12rem;
+    margin-top: 1rem;
+  }
+}
+.ft-results {
+  text-align: center;
+  padding: 2rem 0;
+
+  pre {
+    text-align: left;
+  }
+}
+@media (max-width: 500px) {
+  .content-wrap {
+    border: none;
+
+    .btn {
+      width: 100%;
+    }
+  }
+}

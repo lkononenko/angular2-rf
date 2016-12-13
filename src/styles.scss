@@ -1,1 +1,101 @@
-/* You can add global styles to this file, and also import other style files */
+@import "app/app.variables.scss";
+
+@font-face {
+  font-family: eim;
+  src: url("./assets/fonts/ExcellenceInMotion_Regular.woff") format("woff"),
+       url("./assets/fonts/ExcellenceInMotion_Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: eim;
+  src: url("./assets/fonts/ExcellenceInMotion_Medium.woff") format("woff"),
+       url("./assets/fonts/ExcellenceInMotion_Medium.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: eim;
+  src: url("./assets/fonts/ExcellenceInMotion_Bold.woff") format("woff"),
+       url("./assets/fonts/ExcellenceInMotion_Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+html,
+body {
+  font-family: eim, Arial, sans-serif;
+  color: $color_dark_blue;
+  padding: 0;
+  margin: 0;
+}
+
+h1, h2, h3 {
+  color: $color_dark_blue;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+a, a:visited,
+.color_link {
+  color: $color_dark_blue;
+}
+a:hover {
+  color: $color_red;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.btn-primary,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary:active:focus {
+  background-color: $color_red;
+  border-color: $color_red;
+  border-radius: 0.2rem;
+  font-weight: 600;
+  padding: 0.8rem;
+}
+.btn-primary:hover,
+.btn-primary.disabled:hover,
+.btn-primary:disabled:hover {
+  background-color: #ed0000;
+  border-color: #ed0000;
+}
+
+.form-control {
+  border-radius: 0;
+  border-color: $color_grey;
+  color: $color_dark_blue;
+  line-height: 1.5;
+}
+.form-control:focus {
+  border-color: #14438b;
+}
+label {
+  font-weight: 600;
+  margin-bottom: 0;
+}
+.alert {
+  border-radius: 0;
+  border: none;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  padding: 0.5rem 1rem;
+}
+.alert-danger {
+  background-color: #ffe9ec;
+}
+
+@media (max-width: 1999px) {
+  html {
+    font-size: 16px;
+  }
+}
+@media (min-width: 2000px) {
+  html {
+    font-size: 18px;
+  }
+}
