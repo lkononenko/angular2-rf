@@ -30,7 +30,27 @@
     </div>
   </form>
 </div>
-<div class="container ft-results">
+<div class="ft-results container">
   <div *ngIf="submitted && foundTrip"><pre>{{ foundTrip | json }}</pre></div>
   <div *ngIf="submitted && !foundTrip">There is no booking that match your request.</div>
+</div>
+<div class="ft-hint container">
+  <h4>Hint</h4>
+  <p>There are bookings inside mock data with the next parameters (case sensitive).</p>
+  <div class="row row-header">
+    <div class="col-xs-6">Booking code:</div>
+    <div class="col-xs-6">Family name:</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6">PZIGZ3</div>
+    <div class="col-xs-6">HESP</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6">TEST2</div>
+    <div class="col-xs-6">Test</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6">TEST22</div>
+    <div class="col-xs-6">Smith</div>
+  </div>
 </div>
